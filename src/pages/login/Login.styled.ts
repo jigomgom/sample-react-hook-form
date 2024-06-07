@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 export const Section = styled.section`
-  width: 800px;
+  width: 600px;
   height: 500px;
   margin: 20px auto;
 `;
@@ -25,13 +26,19 @@ export const Ptag = styled.p`
 
 export const FormContent = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 500px;
 `;
 
-export const Input = styled.input`
-  width: 300px;
-  padding: 5px;
-  font-size: 1.4rem;
-  border: 1px solid black;
+export const Input = styled.input<{ hasError: boolean }>`
+  ${({ hasError }) => css`
+    padding: 5px;
+    font-size: 1.4rem;
+    border: 1px solid ${hasError ? "red" : "black"};
+  `}
+`;
+
+export const ErrorMessage = styled.p`
+  color: red;
 `;
