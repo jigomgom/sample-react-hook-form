@@ -1,7 +1,7 @@
-import { Login } from "pages";
+import { HookFormLogin } from "pages";
 
 function App() {
-  return <Login />;
+  return <HookFormLogin />;
 }
 
 export default App;
