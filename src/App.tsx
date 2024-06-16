@@ -1,4 +1,4 @@
-import { HookFormLogin } from "pages";
+import { Login, HookFormLogin } from "pages";
 
 function App() {
   return <HookFormLogin />;

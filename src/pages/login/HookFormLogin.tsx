@@ -41,15 +41,14 @@ const HookFormLogin = () => {
             hasError={!!errors.email}
             {...register("email", {
               required: "이메일은 필수 입력입니다.",
-              validate: (email) => !!emailRegEx.test(email ?? ""),
+              pattern: {
+                value: emailRegEx,
+                message: "이메일 형식이 틀렸습니다.",
+              },
             })}
           />
           {errors.email && (
-            <S.ErrorMessage>
-              {errors.email.type === "validate"
-                ? "이메일 형식이 틀렸습니다."
-                : errors.email.message}
-            </S.ErrorMessage>
+            <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
           )}
         </S.FormContent>
         <S.FormContent>
@@ -59,16 +58,19 @@ const HookFormLogin = () => {
             placeholder="Enter the password"
             hasError={!!errors.password}
             {...register("password", {
+              // react-hook-form에서 제공하는 내장된 유효성 검사 기능
               required: "패스워드는 필수입니다.",
-              validate: (password) => !!passwordRegEx.test(password ?? ""),
+              // react-hook-form에서 제공하는 내장된 유효성 검사 기능
+              minLength: { value: 8, message: "최소 자리수는 8자리입니다." },
+              // custom 한 유효성 검사 기능
+              pattern: {
+                value: passwordRegEx,
+                message: "패스워드 형식이 틀렸습니다.",
+              },
             })}
           />
           {errors.password && (
-            <S.ErrorMessage>
-              {errors.password.type === "validate"
-                ? "패스워드 형식이 틀렸습니다."
-                : errors.password.message}
-            </S.ErrorMessage>
+            <S.ErrorMessage>{errors.password.message}</S.ErrorMessage>
           )}
         </S.FormContent>
         <S.FormContent>
@@ -79,22 +81,20 @@ const HookFormLogin = () => {
             hasError={!!errors.confirmPassword}
             {...register("confirmPassword", {
               required: "확인 패스워드는 필수 입니다.",
+              pattern: {
+                value: passwordRegEx,
+                message: "패스워드 형식이 틀렸습니다.",
+              },
+              // validate를 활용한 유효성 검사 기능
               validate: {
-                passwordValidate: (confirmPassword) =>
-                  !!passwordRegEx.test(confirmPassword ?? ""),
                 notMatchPassword: (confirmPassword) =>
-                  !(confirmPassword !== watch("password")),
+                  confirmPassword === watch("password") ||
+                  "패스워드가 일치하지 않습니다.",
               },
             })}
           />
           {errors.confirmPassword && (
-            <S.ErrorMessage>
-              {errors.confirmPassword.type === "passwordValidate"
-                ? "패스워드 형식이 틀렸습니다."
-                : errors.confirmPassword.type === "notMatchPassword"
-                ? "패스워드가 일치하지 않습니다."
-                : errors.confirmPassword.message}
-            </S.ErrorMessage>
+            <S.ErrorMessage>{errors.confirmPassword.message}</S.ErrorMessage>
           )}
         </S.FormContent>
       </S.LoginForm>
