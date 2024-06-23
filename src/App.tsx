@@ -1,7 +1,7 @@
-import { Login, HookFormLogin } from "pages";
+import { Root } from "root";
 
-function App() {
-  return <HookFormLogin />;
-}
+const App = () => {
+  return <Root />;
+};
 
 export default App;

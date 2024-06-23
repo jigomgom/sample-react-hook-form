@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import * as S from "./Login.styled";
+import * as S from "../Login.styled";
 
 interface HooFormLoginType {
   email: string | null;

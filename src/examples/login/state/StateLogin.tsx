@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import * as S from "./Login.styled";
+import * as S from "../Login.styled";
 
-const Login = () => {
+const StateLogin = () => {
   const [password, setPassword] = useState<string | null>(null);
   const [confirmPassword, setConfirmPassword] = useState<string | null>(null);
 
@@ -97,4 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default StateLogin;
