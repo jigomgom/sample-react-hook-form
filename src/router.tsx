@@ -27,7 +27,7 @@ const Router = ({ children }: RouterProps) => {
           element={<P.HookFormLoginPage />}
         />
         <Route
-          path={`${PATH.EXAMPLE2}${PATH.DRILLING}`}
+          path={`${PATH.EXAMPLE2}${PATH.DRILLING}${PATH.SECTION}`}
           element={<P.PropsDrillingPage />}
         />
         <Route

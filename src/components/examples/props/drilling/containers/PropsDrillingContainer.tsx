@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 
+import { PropsDrillingSection } from "./section";
 import type { UserType } from "types";
 
 const PropsDrillingContainer = () => {
@@ -15,9 +16,18 @@ const PropsDrillingContainer = () => {
     setUser(fakeUser);
   }, []);
 
-  console.log("User type ", user);
+  const handleFormSubmit = (updatedUser: UserType): void => {
+    console.log("Updated User:", updatedUser);
+  };
 
-  return <div>PropsDrillingContainer</div>;
+  return (
+    <main>
+      <h1>Props Drilling Example</h1>
+      {user && (
+        <PropsDrillingSection user={user} onFormSubmit={handleFormSubmit} />
+      )}
+    </main>
+  );
 };
 
 export default PropsDrillingContainer;

@@ -17,7 +17,9 @@ const Main = () => {
       </S.LinkWrapper>
       <S.LinkWrapper>
         <h2>2. Props drilling 예제 - 회원 정보 </h2>
-        <Link to={`${PATH.EXAMPLE2}${PATH.DRILLING}`}>Props drilling</Link>
+        <Link to={`${PATH.EXAMPLE2}${PATH.DRILLING}${PATH.SECTION}`}>
+          Props drilling
+        </Link>
         <Link to={`${PATH.EXAMPLE2}${PATH.HOOK_FORM_CONTEXT}`}>
           useFormContext
         </Link>
