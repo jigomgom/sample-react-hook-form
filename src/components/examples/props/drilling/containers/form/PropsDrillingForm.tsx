@@ -1,32 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import type { UseFormRegister } from "react-hook-form";
 
 import { BackLink } from "components";
 import { PATH } from "constants/index";
 import type { UserType } from "types";
 
 interface PropsDrillingFormProps {
-  onFormSubmit: (updatedUser: UserType) => void;
+  register: UseFormRegister<UserType>;
+  onFormSubmit: (
+    e?: React.BaseSyntheticEvent<object, any, any> | undefined
+  ) => Promise<void>;
 }
 
-const PropsDrillingForm = ({ onFormSubmit }: PropsDrillingFormProps) => {
-  const [user, setUser] = useState<UserType>({
-    name: "",
-    age: 0,
-    location: "",
-  });
-
-  const handleUpdateUserInformation = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    const { name, value } = e.target;
-    setUser((prevUser) => ({
-      ...prevUser,
-      [name]: name === "age" ? +value : value,
-    }));
-  };
-
-  const handleUpdateSubmit = (): void => onFormSubmit(user);
-
+const PropsDrillingForm = ({
+  register,
+  onFormSubmit,
+}: PropsDrillingFormProps) => {
   return (
     <div>
       Field
@@ -34,14 +23,12 @@ const PropsDrillingForm = ({ onFormSubmit }: PropsDrillingFormProps) => {
         <p key={field}>
           <span>{field} : </span>
           <input
-            name={field}
-            onChange={handleUpdateUserInformation}
-            value={user[field as keyof UserType]}
+            {...register(field as keyof UserType)}
             type={field === "age" ? "number" : "text"}
           />
         </p>
       ))}
-      <button type="button" onClick={handleUpdateSubmit}>
+      <button type="button" onClick={onFormSubmit}>
         Update
       </button>
       <BackLink href={`${PATH.EXAMPLE2}${PATH.DRILLING}${PATH.SECTION}`} />

@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import type { UseFormRegister, UseFormWatch } from "react-hook-form";
 
 import type { UserType } from "types";
 import { PropsDrillingForm } from "../form";
 import * as S from "../PropsDrillingContainer.styled";
 
 interface PropsDrillingSectionProps {
-  user: UserType;
-  onFormSubmit: (updatedUser: UserType) => void;
+  watch: UseFormWatch<UserType>;
+  register: UseFormRegister<UserType>;
+  onFormSubmit: (
+    e?: React.BaseSyntheticEvent<object, any, any> | undefined
+  ) => Promise<void>;
 }
 
 const PropsDrillingSection = ({
-  user,
+  watch,
+  register,
   onFormSubmit,
 }: PropsDrillingSectionProps) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -25,12 +30,12 @@ const PropsDrillingSection = ({
           <S.EditButton type="button" onClick={handleEditChange}>
             Edit
           </S.EditButton>
-          <p>{`name : ${user.name}`}</p>
-          <p>{`age : ${user.age}`}</p>
-          <p>{`location : ${user.location}`}</p>
+          <p>{`name : ${watch("name")}`}</p>
+          <p>{`age : ${watch("age")}`}</p>
+          <p>{`location : ${watch("location")}`}</p>
         </>
       ) : (
-        <PropsDrillingForm onFormSubmit={onFormSubmit} />
+        <PropsDrillingForm register={register} onFormSubmit={onFormSubmit} />
       )}
     </S.Section>
   );
