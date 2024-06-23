@@ -1,7 +1,9 @@
 import React from "react";
 
+import { FormContext } from "components/examples";
+
 const UseFormContextPage = () => {
-  return <div>UseFormContextPage</div>;
+  return <FormContext />;
 };
 
 export default UseFormContextPage;

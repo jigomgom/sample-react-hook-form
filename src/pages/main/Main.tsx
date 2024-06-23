@@ -20,7 +20,7 @@ const Main = () => {
         <Link to={`${PATH.EXAMPLE2}${PATH.DRILLING}${PATH.SECTION}`}>
           Props drilling
         </Link>
-        <Link to={`${PATH.EXAMPLE2}${PATH.HOOK_FORM_CONTEXT}`}>
+        <Link to={`${PATH.EXAMPLE2}${PATH.HOOK_FORM_CONTEXT}${PATH.SECTION}`}>
           useFormContext
         </Link>
       </S.LinkWrapper>

@@ -31,7 +31,7 @@ const Router = ({ children }: RouterProps) => {
           element={<P.PropsDrillingPage />}
         />
         <Route
-          path={`${PATH.EXAMPLE2}${PATH.HOOK_FORM_CONTEXT}`}
+          path={`${PATH.EXAMPLE2}${PATH.HOOK_FORM_CONTEXT}${PATH.SECTION}`}
           element={<P.UseFormContextPage />}
         />
       </Route>
