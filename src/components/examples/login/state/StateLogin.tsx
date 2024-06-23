@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { BackLink } from "components";
+import { PATH } from "constants/index";
 import * as S from "../Login.styled";
 
 const StateLogin = () => {
@@ -91,6 +93,7 @@ const StateLogin = () => {
           )}
         </S.FormContent>
       </S.LoginForm>
+      <BackLink href={PATH.ROOT} />
     </S.Section>
   );
 };
