@@ -19,7 +19,6 @@ export const LoginForm = styled.form`
 `;
 
 export const Ptag = styled.p`
-  height: 10px;
   font-size: 1.4rem;
   color: black;
 `;

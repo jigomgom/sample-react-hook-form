@@ -1,2 +1,3 @@
 export * from "./login";
-export { default as Root } from "./Root";
+export * from "./main";
+export * from "./props";

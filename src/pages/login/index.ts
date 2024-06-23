@@ -1,2 +1,2 @@
-export { default as HookFormLogin } from "./HookFormLoginContainer";
-export { default as StateLogin } from "./StateLoginContainer";
+export { default as HookFormLoginPage } from "./HookFormLoginPage";
+export { default as StateLoginPage } from "./StateLoginPage";

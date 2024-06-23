@@ -52,8 +52,6 @@ const StateLogin = () => {
     }
   };
 
-  console.log("render");
-
   return (
     <S.Section>
       <S.LoginForm>
