@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+import { BackLink } from "components";
+import { PATH } from "constants/index";
 import * as S from "../Login.styled";
 
 interface HooFormLoginType {
@@ -98,6 +100,7 @@ const HookFormLogin = () => {
           )}
         </S.FormContent>
       </S.LoginForm>
+      <BackLink href={PATH.ROOT} />
     </S.Section>
   );
 };

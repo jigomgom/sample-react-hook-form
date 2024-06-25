@@ -1,4 +1,4 @@
-import { Root } from "root";
+import { Root } from "components";
 
 const App = () => {
   return <Root />;
