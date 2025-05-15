@@ -52,7 +52,8 @@ const Root = () => {
 
   return (
     <Router>
-      <button>테스트</button>
+      <button onClick={getLocation}>테스트</button>
+      <p>{position.lat}, {position.lng}</p>
       <Outlet />
     </Router>
   );
